@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Arvauspeli
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> Numeroarvaukset = new List<int>();
+            int Laskuri = 0;
+            int i = 0;
+            Random Randomi = new Random();
+            int RandomiLuku = Randomi.Next(1, 101);
+            Console.Write("Minkä luvun olen valinnut väliltä 1 - 100? Syötä arvauksesi ja paina enter: ");
+            int Arvaus = Int32.Parse(Console.ReadLine());
+            Numeroarvaukset.Add(Arvaus);
+            Laskuri++;
+
+            Console.WriteLine();
+
+            while (Arvaus != RandomiLuku)
+            {
+                if (Arvaus > RandomiLuku)
+                {
+                    Console.Write("Arvauksesi oli suurempi kuin valitsemani luku. Arvaa uusi luku ja paina enter: ");
+                    Arvaus = Int32.Parse(Console.ReadLine());
+                    Numeroarvaukset.Add(Arvaus);
+                    Laskuri++;
+                }
+
+                else if (Arvaus < RandomiLuku)
+                {
+                    Console.Write("Arvauksesi oli pienempi kuin valitsemani luku. Arvaa uusi luku ja paina enter: ");
+                    Arvaus = Int32.Parse(Console.ReadLine());
+                    Numeroarvaukset.Add(Arvaus);
+                    Laskuri++;
+                }
+            }
+
+            Console.WriteLine();
+
+            for (i = 0; i < Numeroarvaukset.Count; i++)
+            {
+                Console.WriteLine(Numeroarvaukset[i]);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Onnittelut! {0}. arvauksesi osui oikeaan. Yllä ovat kaikki arvauksesi arvausjärjestyksessä.", Laskuri);
+            Console.WriteLine();
+            Console.Write("Paina enter lopettaaksesi pelin.");
+            Console.Read();
+        }
+    }
+}
